@@ -18,7 +18,7 @@ onUpdate(() => {
 
 
 const level = addLevel([
-	// Design the level layout with symbols
+	
 	"=====================",
 	"                     ",
 	"                     ",
@@ -26,13 +26,13 @@ const level = addLevel([
 	"@        ^ $$",
 	"=====================",
 ], {
-	// The size of each grid
+	
 	tileWidth: 64,
 	tileHeight: 64,
-	// The position of the top left block
+
 	
 	pos: vec2(10, 200),
-	// Define what each symbol means (in components)
+	
 	tiles: {
 		"@": () => [
 			sprite("bean"),
@@ -62,10 +62,10 @@ const level = addLevel([
 	},
 })
 
-// Get the player object from tag
+
 const player = level.get("player")[0]
 
-// Movements
+
 onKeyPress("space", () => {
 	grav = grav * -1
 	debug.log(grav)
@@ -84,12 +84,12 @@ onKeyDown("right", () => {
 	player.move(SPEED, 0)
 })
 
-// Back to the original position if hit a "danger" item
+
 player.onCollide("danger", () => {
 	player.pos = level.tile2Pos(0, 0)
 })
 
-// Eat the coin!
+
 player.onCollide("coin", (coin) => {
 	destroy(coin)
 	play("score")
