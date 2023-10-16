@@ -67,14 +67,14 @@ onKeyPress("space", () => {
 		grav = -2400;
 		player.jump()
 		debug.log(grav)
-	}
+	} else {
+			grav = 2400;
+			debug.log(grav)
+			player.jump()
+		
 
-	if (grav = -2400) {
-		grav = 2400;
-		player.jump()
-		debug.log(grav)
+		}
 
-	}
 	
 		
 	
