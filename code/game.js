@@ -117,7 +117,7 @@ var end = 0;
 
 player.onCollide("portal", (portal) => {
 		if (key == 1) {
-		end = end + 1
-		debug.log(end)
+			end = end + 1;
+			debug.log(end);
 		}
 })
