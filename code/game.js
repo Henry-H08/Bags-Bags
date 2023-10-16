@@ -14,9 +14,9 @@ setGravity(2400)
 const level = addLevel([
 	// Design the level layout with symbols
 	"=====================",
-
-
-
+	"                     ",
+	"                     ",
+	"                     ",
 	"      @  ^ $$",
 	"=====================",
 ], {
