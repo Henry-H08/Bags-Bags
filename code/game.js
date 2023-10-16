@@ -20,7 +20,7 @@ const level = addLevel([
 	tileWidth: 64,
 	tileHeight: 64,
 	// The position of the top left block
-	pos: vec2(width()/6, 600),
+	pos: vec2(0, 600),
 	// Define what each symbol means (in components)
 	tiles: {
 		"@": () => [
