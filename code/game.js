@@ -65,7 +65,7 @@ const player = level.get("player")[0]
 onKeyPress("space", () => {
 	grav = grav * -1
 	debug.log(grav)
-	player.jump
+	player.jump()
 
 	
 		
