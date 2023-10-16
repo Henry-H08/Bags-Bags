@@ -1,11 +1,11 @@
 loadRoot('https://kaboomjs.com/');
 
-loadSprite("bean", "/sprites/bean.png")
-loadSprite("coin", "/sprites/coin.png")
-loadSprite("spike", "/sprites/spike.png")
-loadSprite("grass", "/sprites/grass.png")
-loadSprite("ghosty", "/sprites/ghosty.png")
-loadSound("score", "/examples/sounds/score.mp3")
+loadSprite("bean", "sprites/bean.png")
+loadSprite("coin", "sprites/coin.png")
+loadSprite("spike", "sprites/spike.png")
+loadSprite("grass", "sprites/grass.png")
+loadSprite("ghosty", "sprites/ghosty.png")
+loadSound("score", "examples/sounds/score.mp3")
 
 const SPEED = 480
 
