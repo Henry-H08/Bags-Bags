@@ -107,8 +107,10 @@ player.onCollide("coin", (coin) => {
 	
 })
 
+var end = 0;
+
 player.onCollide("portal", (portal) => {
 	if (key > 1) {
-		destroyALL()
+		end = end + 1
 	}
 })
