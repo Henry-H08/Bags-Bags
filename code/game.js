@@ -11,7 +11,11 @@ const SPEED = 480
 
 var grav = 2400;
 
-setGravity(grav)
+onUpdate(() => {
+   setGravity(grav) 
+})
+
+
 
 const level = addLevel([
 	// Design the level layout with symbols
