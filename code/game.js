@@ -1,6 +1,11 @@
+loadRoot('https://kaboomjs.com/');
 
-loadSprite("apple", "sprites/apple.png")
-loadSound("score", "sounds/pop.mp3")
+loadSprite("bean", "/sprites/bean.png")
+loadSprite("coin", "/sprites/coin.png")
+loadSprite("spike", "/sprites/spike.png")
+loadSprite("grass", "/sprites/grass.png")
+loadSprite("ghosty", "/sprites/ghosty.png")
+loadSound("score", "/examples/sounds/score.mp3")
 
 const SPEED = 480
 
@@ -19,26 +24,26 @@ const level = addLevel([
 	// Define what each symbol means (in components)
 	tiles: {
 		"@": () => [
-			sprite("apples"),
+			sprite("bean"),
 			area(),
 			body(),
 			anchor("bot"),
 			"player",
 		],
 		"=": () => [
-			sprite("apples"),
+			sprite("grass"),
 			area(),
 			body({ isStatic: true }),
 			anchor("bot"),
 		],
 		"$": () => [
-			sprite("apples"),
+			sprite("coin"),
 			area(),
 			anchor("bot"),
 			"coin",
 		],
 		"^": () => [
-			sprite("apples"),
+			sprite("spike"),
 			area(),
 			anchor("bot"),
 			"danger",
