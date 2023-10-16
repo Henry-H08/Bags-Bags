@@ -5,11 +5,13 @@ loadSprite("coin", "sprites/coin.png")
 loadSprite("spike", "sprites/spike.png")
 loadSprite("grass", "sprites/grass.png")
 loadSprite("ghosty", "sprites/ghosty.png")
-loadSound("score", "examples/sounds/score.mp3")
+
 
 const SPEED = 480
 
 var grav = 2400;
+
+var key = 0
 
 onUpdate(() => {
    setGravity(grav) 
@@ -92,5 +94,7 @@ player.onCollide("danger", () => {
 
 player.onCollide("coin", (coin) => {
 	destroy(coin)
-	play("score")
+	key = key + 1;
+	debug.log(key)
+	
 })
