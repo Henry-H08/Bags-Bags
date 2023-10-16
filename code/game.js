@@ -14,14 +14,14 @@ setGravity(2400)
 const level = addLevel([
 	// Design the level layout with symbols
 	"      @  ^ $$",
-	"====================",
+	"=====================",
 ], {
 	// The size of each grid
 	tileWidth: 64,
 	tileHeight: 64,
 	// The position of the top left block
 	
-	pos: vec2(50, 600),
+	pos: vec2(30, 600),
 	// Define what each symbol means (in components)
 	tiles: {
 		"@": () => [
