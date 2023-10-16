@@ -13,8 +13,8 @@ setGravity(2400)
 
 const level = addLevel([
 	// Design the level layout with symbols
-	"@  ^ $$",
-	"====================",
+	"   @  ^ $$",
+	"==============",
 ], {
 	// The size of each grid
 	tileWidth: 64,
