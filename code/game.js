@@ -19,7 +19,7 @@ const level = addLevel([
 	"                     ",
 	"                     ",
 	"                     ",
-	"      @  ^ $$",
+	"@        ^ $$",
 	"=====================",
 ], {
 	// The size of each grid
