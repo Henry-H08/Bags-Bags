@@ -5,6 +5,7 @@ loadSprite("coin", "sprites/coin.png")
 loadSprite("spike", "sprites/spike.png")
 loadSprite("grass", "sprites/grass.png")
 loadSprite("ghosty", "sprites/ghosty.png")
+loadSprite("portal", "sprites/portal.png")
 
 
 const SPEED = 480
