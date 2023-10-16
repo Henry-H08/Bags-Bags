@@ -27,7 +27,7 @@ const level = addLevel([
 	"                     ",
 	"                     ",
 	"                     ",
-	"@        ^ $",
+	"@        ^ $       & ",
 	"=====================",
 ], {
 	
@@ -62,6 +62,12 @@ const level = addLevel([
 			area(),
 			anchor("bot"),
 			"danger",
+		],
+		"&": () => [
+			sprite("portal"),
+			area(),
+			anchor("bot"),
+			"portal",
 		],
 	},
 })
