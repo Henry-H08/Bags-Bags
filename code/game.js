@@ -63,17 +63,9 @@ const player = level.get("player")[0]
 
 // Movements
 onKeyPress("space", () => {
-	if (grav = 2400) {
-		grav = -2400;
-		player.jump()
-		debug.log(grav)
-	} else {
-			grav = 2400;
-			debug.log(grav)
-			player.jump()
-		
-
-		}
+	grav = grav * -1
+	debug.log(grav)
+	player.jump
 
 	
 		
