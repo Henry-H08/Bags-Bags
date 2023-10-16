@@ -107,16 +107,17 @@ player.onCollide("coin", (coin) => {
 	destroy(coin)
 	onUpdate(() => {
 	key = key = 1;
-	})
 	debug.log(key)
+	})
+	
 	
 })
 
 var end = 0;
 
 player.onCollide("portal", (portal) => {
-	
+		if (key == 1) {
 		end = end + 1
 		debug.log(end)
-	
+		}
 })
