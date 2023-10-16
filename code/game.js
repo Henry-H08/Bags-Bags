@@ -9,6 +9,8 @@ loadSound("score", "examples/sounds/score.mp3")
 
 const SPEED = 480
 
+var grav = 2400;
+
 setGravity(2400)
 
 const level = addLevel([
@@ -61,8 +63,11 @@ const player = level.get("player")[0]
 
 // Movements
 onKeyPress("space", () => {
+	if (grav = 2400) {
+		grav = -2400;
+	}
 	
-		player.jump()
+		
 	
 })
 
