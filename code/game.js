@@ -106,3 +106,9 @@ player.onCollide("coin", (coin) => {
 	debug.log(key)
 	
 })
+
+player.onCollide("portal", (portal) => {
+	if (key > 1) {
+		destroyALL()
+	}
+})
