@@ -61,9 +61,9 @@ const player = level.get("player")[0]
 
 // Movements
 onKeyPress("space", () => {
-	if (player.isGrounded()) {
+	
 		player.jump()
-	}
+	
 })
 
 onKeyDown("left", () => {
