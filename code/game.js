@@ -27,7 +27,7 @@ onUpdate(() => {
 const level = addLevel([
 	
 	"=====================",
-	"=                   =",
+	"= ^    *       ^    =",
 	"=                   =",
 	"=                   =",
 	"=  @     ^ $       &=",
@@ -72,6 +72,12 @@ const level = addLevel([
 			anchor("bot"),
 			"portal",
 		],
+		"*": () => [
+			add([
+				text("Collect the coin and head the the portal", {
+					size: 20, 
+					width: 80,
+				}),
 	},
 })
 
