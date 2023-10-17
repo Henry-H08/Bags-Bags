@@ -33,13 +33,13 @@ const level = addLevel([
 	"=  @     ^ $       &=",
 	"=====================",
 ]),
-	{
+	
 	
 	tileWidth: 64,
 	tileHeight: 64,
 
 	pos: vec2(10, 200),
-}
+
 	tiles: {
 		"@": () => [
 			sprite("bean"),
