@@ -32,7 +32,8 @@ const level = addLevel([
 	"=                   =",
 	"=  @     ^ $       &=",
 	"=====================",
-]), {
+])
+	{
 	
 	tileWidth: 64,
 	tileHeight: 64,
