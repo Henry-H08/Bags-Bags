@@ -13,7 +13,7 @@ const SPEED = 480
 
 var grav = 2400;
 
-
+var key = 0
 
 
 
@@ -84,7 +84,7 @@ onKeyPress("space", () => {
 	debug.log(grav)
 	player.jump()
 
-	
+
 		
 	
 })
@@ -105,15 +105,15 @@ player.onCollide("danger", () => {
 
 player.onCollide("coin", (coin) => {
 	destroy(coin)
-	onUpdate(() => {
 	var key = 1;
 	debug.log(key)
-	})
 	
 	
 })
 
 var end = 0;
+
+
 
 player.onCollide("portal", (portal) => {
 		if (key == 1) {
