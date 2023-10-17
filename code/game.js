@@ -15,7 +15,7 @@ var grav = 2400;
 
 
 
-var key = 0
+
 
 
 onUpdate(() => {
@@ -106,7 +106,7 @@ player.onCollide("danger", () => {
 player.onCollide("coin", (coin) => {
 	destroy(coin)
 	onUpdate(() => {
-	key = key = 1;
+	var key = 1;
 	debug.log(key)
 	})
 	
