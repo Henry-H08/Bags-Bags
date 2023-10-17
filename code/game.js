@@ -102,10 +102,11 @@ player.onCollide("danger", () => {
 	player.pos = level.tile2Pos(0, 0)
 })
 
+var key = 0;
 
 player.onCollide("coin", (coin) => {
 	destroy(coin)
-	var key = 1;
+	 key = 1;
 	debug.log(key)
 	
 	
