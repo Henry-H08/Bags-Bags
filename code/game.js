@@ -75,8 +75,7 @@ const level = addLevel([
 		"*": () => [
 			add([
 				text("Collect the coin and head the the portal", {
-					size: 20, 
-					width: 80,
+					
 				}),
 				]),
 		],
