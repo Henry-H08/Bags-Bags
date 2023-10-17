@@ -39,7 +39,7 @@ const level = addLevel([
 
 	
 	pos: vec2(10, 200),
-	
+}
 	tiles: {
 		"@": () => [
 			sprite("bean"),
