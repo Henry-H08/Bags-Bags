@@ -81,7 +81,7 @@ const level = addLevel([
 				])
 		],
 	}
-}
+})
 
 
 
