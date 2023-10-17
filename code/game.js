@@ -78,7 +78,7 @@ const level = addLevel([
 					size: 20, 
 					width: 80,
 				}),
-	},
+		],
 })
 
 
