@@ -32,7 +32,7 @@ const level = addLevel([
 	"=                   =",
 	"=  @     ^ $       &=",
 	"=====================",
-]),
+], {
 	
 	
 	tileWidth: 64,
@@ -80,7 +80,9 @@ const level = addLevel([
 				}),
 				)
 		],
+	}
 }
+
 
 
 const player = level.get("player")[0]
