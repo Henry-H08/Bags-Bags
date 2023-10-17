@@ -77,8 +77,8 @@ const level = addLevel([
 				text("Collect the coin and head the the portal", {
 					size: 20, 
 					width: 80,
-				})
-				])
+				}),
+				]),
 		],
 	}
 })
