@@ -9,18 +9,18 @@ loadSprite("portal", "sprites/portal.png")
 loadSprite("steel", "sprites/steel.png")
  
 
-const SPEED = 480
+const SPEED = 480;
 
 var grav = 2400;
 
-var key = 0
+var key = 0;
 
 
 
 
 onUpdate(() => {
-   setGravity(grav) 
-})
+   setGravity(grav);
+});
 
 
 
@@ -73,11 +73,9 @@ const level = addLevel([
 			"portal",
 		],
 		"*": () => [
-			add([
-				text("Collect the coin and head the the portal", {
+			text("Collect the coin and head the the portal", {
 					
-				}),
-				]),
+			}),
 		],
 	},
 })
