@@ -27,7 +27,7 @@ onUpdate(() => {
 const level = addLevel([
 	
 	"=====================",
-	"= ^    *       ^    =",
+	"= !    *       !    =",
 	"=                   =",
 	"=                   =",
 	"=  @     ^ $       &=",
@@ -72,10 +72,12 @@ const level = addLevel([
 			anchor("bot"),
 			"portal",
 		],
-		"*": () => [
-			text("Collect the coin and head the the portal", {
-					
-			}),
+		"": () => [
+			sprite("spike"),
+			area(),
+			anchor("bot"),
+			rotate(180),
+			"danger",
 		],
 	},
 })
