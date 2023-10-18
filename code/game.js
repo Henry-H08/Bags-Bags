@@ -72,7 +72,7 @@ const level = addLevel([
 			anchor("bot"),
 			"portal",
 		],
-		"": () => [
+		"!": () => [
 			sprite("spike"),
 			area(),
 			anchor("bot"),
