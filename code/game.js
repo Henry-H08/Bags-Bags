@@ -138,6 +138,7 @@ player.onCollide("apple", (apple) => {
 
 var end = 0;
 
+})
 
 
 player.onCollide("portal", (portal) => {
