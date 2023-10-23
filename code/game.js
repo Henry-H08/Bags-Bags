@@ -30,7 +30,7 @@ const level = addLevel([
 	"=      *            =",
 	"=                   =",
 	"=                   =",
-	"=  @    ^^^ $      &=",
+	"=@      ^^^ $      &=",
 	"=====================",
 ], {
 	
@@ -107,7 +107,8 @@ onKeyDown("right", () => {
 
 
 player.onCollide("danger", () => {
-	player.pos = level.tile2Pos(2,3)
+	player.pos = level.tile2Pos(1,3)
+	grav = Math.abs(grav);
 })
 
 var key = 0;
