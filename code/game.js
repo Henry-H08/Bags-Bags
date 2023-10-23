@@ -29,7 +29,7 @@ onUpdate(() => {
 const level = addLevel([
 	
 	"==!!===========!!====",
-	"=      &            =",
+	"=      #            =",
 	"=                   =",
 	"=                   =",
 	"=@      ^^^ $      &=",
@@ -136,10 +136,11 @@ player.onCollide("apple", (apple) => {
 	 score = score + 1;
 	 debug.log(score)
 
-var end = 0;
+
 
 })
 
+var end = 0;
 
 player.onCollide("portal", (portal) => {
 		if (key == 1) {
