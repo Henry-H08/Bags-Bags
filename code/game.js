@@ -7,7 +7,7 @@ loadSprite("grass", "sprites/grass.png")
 loadSprite("ghosty", "sprites/ghosty.png")
 loadSprite("portal", "sprites/portal.png")
 loadSprite("steel", "sprites/steel.png")
-loadSprite("apple", "sprite/apple.png")
+loadSprite("bag", "sprite/bag.png")
 
  
 
@@ -82,10 +82,10 @@ const level = addLevel([
 			"danger",
 		],
 		"#": () => [
-			sprite("apple"),
+			sprite("bag"),
 			area(),
 			anchor("bot"),
-			"apple",
+			"bag",
 		],
 	},
 })
@@ -131,7 +131,7 @@ player.onCollide("coin", (coin) => {
 
 var score = 0;
 
-player.onCollide("apple", (apple) => {
+player.onCollide("bag", (bag) => {
 	destroy(apple)
 	 score = score + 1;
 	 debug.log(score)
