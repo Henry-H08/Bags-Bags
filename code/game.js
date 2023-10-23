@@ -107,7 +107,7 @@ onKeyDown("right", () => {
 
 
 player.onCollide("danger", () => {
-	player.pos = level.tile2Pos(0, 0)
+	player.pos = level.tile2Pos(2, 2)
 })
 
 var key = 0;
