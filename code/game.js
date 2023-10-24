@@ -15,8 +15,7 @@ const SPEED = 480
 
 setBackground(141, 183, 255)
 
-// load assets
-loadSprite("bean", "/sprites/bean.png")
+
 
 scene("game", () => {
 
