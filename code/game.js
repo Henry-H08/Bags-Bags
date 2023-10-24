@@ -11,7 +11,7 @@ loadSprite("steel", "sprites/steel.png")
 
  
 
-const SPEED = 480;
+
 
 var grav = 2400;
 
