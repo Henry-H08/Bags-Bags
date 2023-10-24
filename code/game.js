@@ -8,30 +8,20 @@ loadSprite("ghosty", "sprites/ghosty.png")
 loadSprite("portal", "sprites/portal.png")
 loadSprite("steel", "sprites/steel.png")
 
-
- 
-
-
-
-var grav = 2400;
-
-var key = 0;
-
 const FLOOR_HEIGHT = 48
-
 const JUMP_FORCE = 800
-
 const SPEED = 480
-
-
-
-onUpdate(() => {
-   setGravity(grav);
-});
-
+ 
 
 setBackground(141, 183, 255)
 
+// load assets
+loadSprite("bean", "/sprites/bean.png")
+
+scene("game", () => {
+
+	// define gravity
+	setGravity(2400)
 
 	// add a game object to screen
 	const player = add([
@@ -108,7 +98,7 @@ setBackground(141, 183, 255)
 		scoreLabel.text = score
 	})
 
-
+})
 
 scene("lose", (score) => {
 
