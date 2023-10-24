@@ -72,6 +72,27 @@ scene("game", () => {
 
 	}
 
+
+	function spawntopTree() {
+
+		// add tree obj
+		add([
+			rect(48, rand(32, 96)),
+			area(),
+			outline(4),
+			pos(width(), height()*2 - FLOOR_HEIGHT),
+			anchor("botleft"),
+			color(238, 143, 203),
+			move(LEFT, SPEED),
+			offscreen({ destroy: true }),
+			"tree",
+		])
+
+		// wait a random amount of time to spawn next tree
+		wait(rand(0.5, 1.5), spawnTree)
+
+	}
+
 	// start spawning trees
 	spawnTree()
 
