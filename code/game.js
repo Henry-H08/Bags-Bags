@@ -17,6 +17,11 @@ var grav = 2400;
 
 var key = 0;
 
+const FLOOR_HEIGHT = 48
+
+const JUMP_FORCE = 800
+
+const SPEED = 480
 
 
 
@@ -25,126 +30,107 @@ onUpdate(() => {
 });
 
 
-
-const level = addLevel([
-	
-	"==!!===========!!====",
-	"=      #            =",
-	"=                   =",
-	"=                   =",
-	"=@      ^^^ $      &=",
-	"=====================",
-], {
-	
-	
-	tileWidth: 64,
-	tileHeight: 64,
-
-	pos: vec2(10, 200),
-
-	tiles: {
-		"@": () => [
-			sprite("bean"),
-			area(),
-			body(),
-			anchor("bot"),
-			"player",
-		],
-		"=": () => [
-			sprite("grass"),
-			area(),
-			body({ isStatic: true }),
-			anchor("bot"),
-		],
-		"$": () => [
-			sprite("coin"),
-			area(),
-			anchor("bot"),
-			"coin",
-		],
-		"^": () => [
-			sprite("spike"),
-			area(),
-			anchor("bot"),
-			"danger",
-		],
-		"&": () => [
-			sprite("portal"),
-			area(),
-			anchor("bot"),
-			"portal",
-		],
-		"!": () => [
-			sprite("spike"),
-			area(),
-			anchor("bot"),
-			rotate(180),
-			"danger",
-		],
-		"#": () => [
-			sprite("steel"),
-			area(),
-			anchor("bot"),
-			"steel",
-		],
-	},
-})
+setBackground(141, 183, 255)
 
 
+	// add a game object to screen
+	const player = add([
+		// list of components
+		sprite("bean"),
+		pos(80, 40),
+		area(),
+		body(),
+	])
 
-const player = level.get("player")[0]
+	// floor
+	add([
+		rect(width(), FLOOR_HEIGHT),
+		outline(4),
+		pos(0, height()),
+		anchor("botleft"),
+		area(),
+		body({ isStatic: true }),
+		color(132, 101, 236),
+	])
 
-
-onKeyPress("space", () => {
-	grav = grav * -1
-	debug.log(grav)
-	player.jump()
-
-
-		
-	
-})
-
-onKeyDown("left", () => {
-	player.move(-SPEED, 0)
-})
-
-onKeyDown("right", () => {
-	player.move(SPEED, 0)
-})
-
-
-player.onCollide("danger", () => {
-	player.pos = level.tile2Pos(1,3)
-	grav = Math.abs(grav);
-})
-
-var key = 0;
-
-player.onCollide("coin", (coin) => {
-	destroy(coin)
-	 key = 1;
-	debug.log(key)
-	
-	
-})
-
-var score = 0;
-
-player.onCollide("steel", (steel) => {
-	destroy(steel)
-	 score = score + 1;
-	 debug.log(score)
-
-
-
-})
-
-var end = 0;
-
-player.onCollide("portal", (portal) => {
-		if (key == 1) {
-			end = end + 1;
-			debug.log(end);
+	function jump() {
+		if (player.isGrounded()) {
+			player.jump(JUMP_FORCE)
 		}
+	}
+
+	// jump when user press space
+	onKeyPress("space", jump)
+	onClick(jump)
+
+	function spawnTree() {
+
+		// add tree obj
+		add([
+			rect(48, rand(32, 96)),
+			area(),
+			outline(4),
+			pos(width(), height() - FLOOR_HEIGHT),
+			anchor("botleft"),
+			color(238, 143, 203),
+			move(LEFT, SPEED),
+			offscreen({ destroy: true }),
+			"tree",
+		])
+
+		// wait a random amount of time to spawn next tree
+		wait(rand(0.5, 1.5), spawnTree)
+
+	}
+
+	// start spawning trees
+	spawnTree()
+
+	// lose if player collides with any game obj with tag "tree"
+	player.onCollide("tree", () => {
+		// go to "lose" scene and pass the score
+		go("lose", score)
+		burp()
+		addKaboom(player.pos)
+	})
+
+	// keep track of score
+	let score = 0
+
+	const scoreLabel = add([
+		text(score),
+		pos(24, 24),
+	])
+
+	// increment score every frame
+	onUpdate(() => {
+		score++
+		scoreLabel.text = score
+	})
+
 })
+
+scene("lose", (score) => {
+
+	add([
+		sprite("bean"),
+		pos(width() / 2, height() / 2 - 64),
+		scale(2),
+		anchor("center"),
+	])
+
+	// display score
+	add([
+		text(score),
+		pos(width() / 2, height() / 2 + 64),
+		scale(2),
+		anchor("center"),
+	])
+
+	// go back to game with space is pressed
+	onKeyPress("space", () => go("game"))
+	onClick(() => go("game"))
+
+})
+
+go("game")
