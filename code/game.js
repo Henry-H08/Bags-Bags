@@ -89,7 +89,7 @@ scene("game", () => {
 		])
 
 		// wait a random amount of time to spawn next tree
-		wait(rand(0.5, 1.5), spawnTree)
+		wait(rand(0.5, 1.5), spawntopTree)
 
 	}
 
