@@ -108,7 +108,7 @@ setBackground(141, 183, 255)
 		scoreLabel.text = score
 	})
 
-})
+
 
 scene("lose", (score) => {
 
