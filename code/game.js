@@ -33,7 +33,7 @@ scene("game", () => {
 
 	// floor
 	add([
-		rect(width(), height(),
+		rect(width(), height()),
 		outline(4),
 		pos(0, height()),
 		anchor("botleft"),
