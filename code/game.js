@@ -11,7 +11,9 @@ loadSprite("steel", "sprites/steel.png")
 const FLOOR_HEIGHT = 48
 const JUMP_FORCE = 800
 const SPEED = 480
- 
+
+// initialize context
+
 
 setBackground(141, 183, 255)
 
@@ -33,7 +35,7 @@ scene("game", () => {
 
 	// floor
 	add([
-		rect(width(), height()),
+		rect(width(), FLOOR_HEIGHT),
 		outline(4),
 		pos(0, height()),
 		anchor("botleft"),
@@ -41,9 +43,6 @@ scene("game", () => {
 		body({ isStatic: true }),
 		color(132, 101, 236),
 	])
-
-
-	
 
 	function jump() {
 		if (player.isGrounded()) {
@@ -74,8 +73,6 @@ scene("game", () => {
 		wait(rand(0.5, 1.5), spawnTree)
 
 	}
-
-
 
 	// start spawning trees
 	spawnTree()
