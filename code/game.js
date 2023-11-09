@@ -48,6 +48,7 @@ scene("game", () => {
 	function jump() {
 		if (player.isGrounded()) {
 			player.jump(JUMP_FORCE)
+			grav *= -1
 		}
 	}
 
