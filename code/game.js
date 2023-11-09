@@ -45,6 +45,10 @@ scene("game", () => {
 		color(132, 101, 236),
 	])
 
+	add([
+		rect(width(), height() - FLOOR_HEIGHT),
+		
+
 	function jump() {
 		if (player.isGrounded()) {
 			player.jump(JUMP_FORCE)
