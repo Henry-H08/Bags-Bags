@@ -11,6 +11,7 @@ loadSprite("steel", "sprites/steel.png")
 const FLOOR_HEIGHT = 48
 const JUMP_FORCE = 800
 const SPEED = 480
+var grav = 2400
 
 // initialize context
 
@@ -22,7 +23,7 @@ setBackground(141, 183, 255)
 scene("game", () => {
 
 	// define gravity
-	setGravity(2400)
+	setGravity(grav)
 
 	// add a game object to screen
 	const player = add([
