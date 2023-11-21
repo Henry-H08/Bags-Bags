@@ -18,7 +18,7 @@ kaboom()
 setBackground(141, 183, 255)
 
 // load assets
-loadSprite("bean", "/sprites/bean.png")
+loadSprite("bean", "sprites/bean.png")
 
 scene("game", () => {
 
