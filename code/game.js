@@ -1,12 +1,6 @@
-loadRoot('https://kaboomjs.com/');
 
-loadSprite("bean", "sprites/bean.png")
-loadSprite("coin", "sprites/coin.png")
-loadSprite("spike", "sprites/spike.png")
-loadSprite("grass", "sprites/grass.png")
-loadSprite("ghosty", "sprites/ghosty.png")
-loadSprite("portal", "sprites/portal.png")
-loadSprite("steel", "sprites/steel.png")
+
+loadSprite("apple", "sprites/apple.png")
 
 const FLOOR_HEIGHT = 48
 const JUMP_FORCE = 800
@@ -28,7 +22,7 @@ scene("game", () => {
 	// add a game object to screen
 	const player = add([
 		// list of components
-		sprite("bean"),
+		sprite("apple"),
 		pos(80, 40),
 		area(),
 		body(),
@@ -105,7 +99,7 @@ scene("game", () => {
 scene("lose", (score) => {
 
 	add([
-		sprite("bean"),
+		sprite("apple"),
 		pos(width() / 2, height() / 2 - 64),
 		scale(2),
 		anchor("center"),
