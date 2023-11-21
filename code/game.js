@@ -28,7 +28,7 @@ scene("game", () => {
 	// add a game object to screen
 	const player = add([
 		// list of components
-		sprite("bean"),
+		sprite("coin"),
 		pos(80, 40),
 		area(),
 		body(),
@@ -105,7 +105,7 @@ scene("game", () => {
 scene("lose", (score) => {
 
 	add([
-		sprite("bean"),
+		sprite("coin"),
 		pos(width() / 2, height() / 2 - 64),
 		scale(2),
 		anchor("center"),
