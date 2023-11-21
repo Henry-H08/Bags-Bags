@@ -59,8 +59,10 @@ scene("game", () => {
 	}
 
 	// jump when user press space
-	onKeyPress("space", jump)
-	onClick(jump)
+	onKeyPress("space", () => {
+   		 bean.jump()
+				})
+	onClick(() => bean.jump)
 
 	function spawnTree() {
 
