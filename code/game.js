@@ -11,19 +11,19 @@ loadSprite("steel", "sprites/steel.png")
 const FLOOR_HEIGHT = 48
 const JUMP_FORCE = 800
 const SPEED = 480
-var grav = 2400
 
 // initialize context
-
+kaboom()
 
 setBackground(141, 183, 255)
 
-
+// load assets
+loadSprite("bean", "/sprites/bean.png")
 
 scene("game", () => {
 
 	// define gravity
-	setGravity(grav)
+	setGravity(2400)
 
 	// add a game object to screen
 	const player = add([
@@ -45,24 +45,15 @@ scene("game", () => {
 		color(132, 101, 236),
 	])
 
-	add([
-		rect(width(), height() - FLOOR_HEIGHT),
-		
-
 	function jump() {
 		if (player.isGrounded()) {
 			player.jump(JUMP_FORCE)
-			grav *= -1
-			setGravity(grav)
-			debug.log(grav)
 		}
 	}
 
 	// jump when user press space
-	onKeyPress("space", () => {
-   		 bean.jump()
-				})
-	onClick(() => bean.jump)
+	onKeyPress("space", jump)
+	onClick(jump)
 
 	function spawnTree() {
 
