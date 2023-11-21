@@ -76,7 +76,6 @@ scene("game", () => {
 	player.onCollide("tree", () => {
 		// go to "lose" scene and pass the score
 		go("lose", score)
-		burp()
 		addKaboom(player.pos)
 	})
 
