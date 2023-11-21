@@ -1,12 +1,12 @@
 loadRoot('https://kaboomjs.com/');
 
-loadSprite("bean", "sprites/bean.png")
-loadSprite("coin", "sprites/coin.png")
-loadSprite("spike", "sprites/spike.png")
-loadSprite("grass", "sprites/grass.png")
-loadSprite("ghosty", "sprites/ghosty.png")
-loadSprite("portal", "sprites/portal.png")
-loadSprite("steel", "sprites/steel.png")
+loadSprite("bean", "/sprites/bean.png")
+loadSprite("coin", "/sprites/coin.png")
+loadSprite("spike", "/sprites/spike.png")
+loadSprite("grass", "/sprites/grass.png")
+loadSprite("ghosty", "/sprites/ghosty.png")
+loadSprite("portal", "/sprites/portal.png")
+loadSprite("steel", "/sprites/steel.png")
 
 const FLOOR_HEIGHT = 48
 const JUMP_FORCE = 800
