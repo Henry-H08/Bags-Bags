@@ -1,5 +1,4 @@
-loadSprite("bean", "/sprites/bean.png")
-loadSprite("ghosty", "/sprites/ghosty.png")
+
 
 // Load a shader with custom fragment shader code
 // The fragment shader should define a function "frag", which returns a color and receives the vertex position, texture coodinate, vertex color, and texture as arguments
@@ -23,7 +22,7 @@ vec4 frag(vec2 pos, vec2 uv, vec4 color, sampler2D tex) {
 var beanpixel = 4
 
 add([
-	sprite("bean"),
+	sprite("apple"),
 	pos(80, 40),
 	scale(8),
 	// Use the shader with shader() component and pass uniforms
@@ -34,7 +33,7 @@ add([
 ])
 
 add([
-	sprite("ghosty"),
+	sprite("apple"),
 	pos(center()),
 	scale(8),
 	area(),
