@@ -1,121 +1,48 @@
+loadSprite("bean", "/sprites/bean.png")
+loadSprite("ghosty", "/sprites/ghosty.png")
 
+// Load a shader with custom fragment shader code
+// The fragment shader should define a function "frag", which returns a color and receives the vertex position, texture coodinate, vertex color, and texture as arguments
+// There's also the def_frag() function which returns the default fragment color
+loadShader("pixelate", null, `
+uniform float u_size;
+uniform vec2 u_resolution;
 
-loadSprite("apple", "sprites/apple.png")
+// TODO: this is causing some extra pixels to appear at screen edge
+vec4 frag(vec2 pos, vec2 uv, vec4 color, sampler2D tex) {
+	if (u_size <= 0.0) return def_frag();
+	vec2 nsize = vec2(u_size / u_resolution.x, u_size / u_resolution.y);
+	float x = floor(uv.x / nsize.x + 0.5);
+	float y = floor(uv.y / nsize.y + 0.5);
+	vec4 c = texture2D(tex, vec2(x, y) * nsize);
+	return c * color;
+}
 
-const FLOOR_HEIGHT = 48
-const JUMP_FORCE = 800
-const SPEED = 480
+`)
 
-// initialize context
+var beanpixel = 4
 
+add([
+	sprite("bean"),
+	pos(80, 40),
+	scale(8),
+	// Use the shader with shader() component and pass uniforms
+	shader("pixelate", () => ({
+		"u_resolution": vec2(width(), height()),
+		"u_size": beanpixel
+	})),
+])
 
-setBackground(141, 183, 255)
+add([
+	sprite("ghosty"),
+	pos(center()),
+	scale(8),
+	area(),
+	'ghosty'
+	
+])
 
-
-
-
-scene("game", () => {
-
-	// define gravity
-	setGravity(2400)
-
-	// add a game object to screen
-	const player = add([
-		// list of components
-		sprite("apple"),
-		pos(80, 40),
-		area(),
-		body(),
-	])
-
-	// floor
-	add([
-		rect(width(), FLOOR_HEIGHT),
-		outline(4),
-		pos(0, height()),
-		anchor("botleft"),
-		area(),
-		body({ isStatic: true }),
-		color(132, 101, 236),
-	])
-
-	function jump() {
-		if (player.isGrounded()) {
-			player.jump(JUMP_FORCE)
-		}
-	}
-
-	// jump when user press space
-	onKeyPress("space", jump)
-	onClick(jump)
-
-	function spawnTree() {
-
-		// add tree obj
-		add([
-			rect(48, rand(32, 96)),
-			area(),
-			outline(4),
-			pos(width(), height() - FLOOR_HEIGHT),
-			anchor("botleft"),
-			color(238, 143, 203),
-			move(LEFT, SPEED),
-			offscreen({ destroy: true }),
-			"tree",
-		])
-
-		// wait a random amount of time to spawn next tree
-		wait(rand(0.5, 1.5), spawnTree)
-
-	}
-
-	// start spawning trees
-	spawnTree()
-
-	// lose if player collides with any game obj with tag "tree"
-	player.onCollide("tree", () => {
-		// go to "lose" scene and pass the score
-		go("lose", score)
-		addKaboom(player.pos)
-	})
-
-	// keep track of score
-	let score = 0
-
-	const scoreLabel = add([
-		text(score),
-		pos(24, 24),
-	])
-
-	// increment score every frame
-	onUpdate(() => {
-		score++
-		scoreLabel.text = score
-	})
-
+onClick("ghosty", (ghosty) => {
+	beanpixel = 0
+	
 })
-
-scene("lose", (score) => {
-
-	add([
-		sprite("apple"),
-		pos(width() / 2, height() / 2 - 64),
-		scale(2),
-		anchor("center"),
-	])
-
-	// display score
-	add([
-		text(score),
-		pos(width() / 2, height() / 2 + 64),
-		scale(2),
-		anchor("center"),
-	])
-
-	// go back to game with space is pressed
-	onKeyPress("space", () => go("game"))
-	onClick(() => go("game"))
-
-})
-
-go("game")
